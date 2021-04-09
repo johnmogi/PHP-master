@@ -4,6 +4,7 @@ in this master snippets project I'll be covering everything PHP + wordpress, fro
 
 ## order of appearence:
 WORDPRESS - tutplus - covers the very basic.
+jb_lesson_arrays - covers mostly OOP and backend form sample
 
 if you survived this far- congrats- it's going to be awesome (:
 
