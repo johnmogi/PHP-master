@@ -48,9 +48,10 @@ switch($command) {
 <table>
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>Stock</th>
+                    <th>category</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -104,3 +105,25 @@ INSERT INTO `book` (`bookID`, `bookName`, `price`, `category`) VALUES (NULL, 'Th
 
 INSERT INTO `authors` (`authorID`, `bookID`, `authorName`, `birthdate`) VALUES (NULL, '1', 'J R R Tolkien', '1923-04-13');
 
+inner join: https://www.w3schools.com/sql/sql_join_inner.asp
+SELECT * FROM book INNER JOIN authors ON book.bookID = authors.bookID
+
+
+0. addBook - book-logic.php: 
+function addProduct($name, $price, $stock) {
+ $sql = "INSERT INTO Products(ProductName, UnitPrice, UnitsInStock) " .
+          "VALUES('$name', $price, $stock)";
+    $id = insert($sql);
+    return $id;
+}
+## got complex join table issues?
+function addBook($bookName, $price, $category, $authorName, $birthDate) {
+    $addBook = "INSERT INTO book(bookName, price, category) " .
+             "VALUES('$bookName', $price, $category)";
+             $addAuthor = "INSERT INTO authors(authorName, birthDate) " .
+             "VALUES('$authorName', $birthDate)";
+       $id = insert($addBook, $addAuthor );
+       return $id;
+   }
+
+0. test
